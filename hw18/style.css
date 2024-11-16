@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 600px;
+    max-width: 100%;
+    background-color: #f1c40f;
+    position: relative;
+    top: 65px;
+}
+
+.image-section {
+    flex: 1;
+    position: relative;
+}
+
+.image-section img {
+    width: 300px;
+    height: 480px;
+    object-fit: cover;
+    position: absolute;
+    top: -8%;
+    left: 400px;
+}
+
+.content-section {
+    flex: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: -60%;
+    margin-top: 90px;
+    width: 50px;
+    height: 200px;
+}
+
+.content-section h1 {
+    margin-top: 0;
+    text-align: center;
+    font-weight: 700;
+}
+
+.content-section p {
+    text-align: center;
+    font-weight: 600;
+}
+
+.credit {
+    font-size: 0.8em;
+    color: #555;
+    text-align: center;
+}
+
+.learn-more {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 20px;
+    width: 200px;
+}
+
+.learn-more:hover {
+    background-color: #333;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .image-section img {
+        left: 380px; /* Adjust image position for medium screens */
+        width: 250px;
+        height: auto;
+    }
+
+    .content-section {
+        margin-left: -30%; /* Adjust alignment */
+        width: auto;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+    }
+
+    .image-section img {
+        position: static; /* Remove absolute positioning */
+        width: 80%; /* Adjust size */
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .content-section {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-section img {
+        width: 90%; /* Smaller width for narrow screens */
+    }
+
+    .content-section h1 {
+        font-size: 1.5em;
+    }
+
+    .content-section p {
+        font-size: 0.9em;
+    }
+
+    .learn-more {
+        width: 100%; /* Full-width button */
+    }
+}
