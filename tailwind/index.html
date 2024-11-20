@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+    <style>
+        :root {
+            --card-bg: #171717;
+            --primary-blue: #3b82f6;
+            --task-bg: #1f1f1f;
+        }
+
+        body {
+            background-color: gray;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
+            color: white;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 24px;
+            width: 320px;
+            height: 600px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card1{
+            margin-top: 50px;
+        }
+        .card2{
+            margin-top: 30px;
+        }
+        .card3{
+            margin-top: 0px;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 44px;
+            padding: 32px;
+            flex-wrap: wrap; /* Allow cards to wrap when needed */
+        }
+
+        .first-img{
+            border-radius: 30px;
+            height: 200px;
+            width: auto;
+        }
+
+        .app-icon {
+            width: 250px;
+            height: 200px;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-icon-inner {
+            background-color: var(--primary-blue);
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        .primary-button {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 12px;
+            border-radius: 52px;
+            width: 100%;
+            margin-bottom: 16px;
+            border: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            font-weight: 500;
+        }
+
+        .primary-button:hover {
+            opacity: 0.9;
+        }
+
+        .secondary-button {
+            background-color: var(--task-bg);
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-weight: 500;
+        }
+
+        .secondary-button:hover {
+            background-color: #2d2d2d;
+        }
+
+        .profile-image , .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--task-bg);
+            margin-bottom: 16px;
+        }
+
+        .toggle-switch {
+            width: 48px;
+            height: 24px;
+            background-color: var(--task-bg);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            background-color: #6b7280;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+            overflow-y: auto;
+        }
+
+        .task-item {
+            background-color: var(--task-bg);
+            padding: 12px 16px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-text {
+            color: white;
+            font-size: 14px;
+        }
+
+        .status-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .status-green { background-color: #22c55e; }
+        .status-purple { background-color: #a855f7; }
+        .status-orange { background-color: #f97316; }
+
+        .nav-buttons {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .nav-button {
+            padding: 8px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--task-bg);
+        }
+
+        .nav-button svg {
+            width: 20px;
+            height: 20px;
+            color: #9ca3af;
+        }
+
+        .nav-button.active {
+            background-color: var(--primary-blue);
+        }
+
+        .nav-button.active svg {
+            color: white;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .search-bar i {
+            color: #6b7280;
+        }
+
+        .user-avatar , .pro-img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--task-bg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Login Card -->
+        <div class="card card1">
+            <div class="app-icon" >
+                <img src="./img.avif" alt="" srcset="" class="first-img mt-5">
+            </div>
+            <h1 class="text-3xl font-bold mb-2 mt-8">The only </h1> <h1  class="text-3xl font-bold mb-2"> productivity </h1> <h1  class="text-3xl font-bold mb-2">app you need</h1>
+            <div class="mt-auto">
+                <button class="primary-button ">Sign in with Email</button>
+                <div class="flex gap-4">
+                    <button class="secondary-button flex-1">Google</button>
+                    <button class="secondary-button flex-1">Apple ID</button>
+                </div>
+                <p class="text-gray-400 text-xs mt-4 text-center">
+                    By Continuing you agree to the Terms and Conditions
+                </p>
+            </div>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="card card2">
+            <div class="flex flex-col items-center">
+                <div class="profile-image">
+                    <img src="./profile.jpg" alt="" class="profile-img">
+                </div>
+                <h2 class="text-3xl font-bold mb-1">Erlich Bachman</h2>
+                <p class="text-gray-400 text-sm mb-4">@erlichbachman</p>
+                <button class="primary-button w-auto px-6">Edit Profile</button>
+            </div>
+            
+            <div class="space-y-4 mt-4">
+                <div class="flex justify-between items-center bg-gray-600 h-16 rounded-lg p-4">
+                    <span>Turn on Notifications</span>
+                    <div class="toggle-switch"></div>
+                </div>
+                <div class="flex justify-between items-center bg-gray-600 h-16 rounded-lg p-4">
+                    <span>Invite people</span>
+                    <button class="primary-button w-auto px-4 py-1 mb-0">Invite</button>
+                </div>
+
+                <p class=" text-[#4f4f4f] text-sm font-bold flex justify-center items-center ">log out</p>
+
+            </div>
+
+            <div class="nav-buttons flex justify-around">
+                <button class="nav-button">
+                    <i data-feather="chevron-left"></i>
+                </button>
+                <button class="nav-button active">
+                    <i data-feather="plus"></i>
+                </button>
+                <button class="nav-button">
+                    <i data-feather="chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tasks Card -->
+        <div class="card card3">
+            <div class="flex justify-between items-center mb-6">
+                <button class="nav-button">
+                    <i data-feather="chevron-left"></i>
+                </button>
+                <h2 class="text-xl font-semibold">Daily progress</h2>
+                <div class="search-bar">
+                    <i data-feather="search"></i>
+                    <div class="user-avatar">
+                        <img src="./profile.jpg" alt="" class="pro-img">
+                    </div>
+                </div>
+            </div>
+
+            <button class="secondary-button bg-gray-600 text-left text-2sm">search</button>
+            <div class="btns flex column justify-between mt-2">
+            <p class=" text-[#fff] text-sm font-bold flex justify-center items-center bg-blue-600 w-20 h-10 border-none rounded-lg">All</p>
+            <p class=" text-[#4f4f4f] text-sm font-bold flex justify-center items-center ">Favourites</p>
+        </div>
+            <div class="task-list">
+                <div class="task-item border-2 border-green-500">
+                    <span class="task-text">Read "The Lean Startup"</span>
+                    <button class="nav-button">
+                        <i data-feather="chevron-right"></i>
+                    </button>
+                </div>
+                <div class="task-item border-2 border-green-500">
+                    <span class="task-text">Fix landing page</span>
+                    <button class="nav-button">
+                        <i data-feather="chevron-right"></i>
+                    </button>
+                </div>
+                <div class="task-item ">
+                    <span class="task-text">Share prototype with team</span>
+                    <button class="nav-button">
+                        <i data-feather="chevron-right"></i>
+                    </button>
+                </div>
+                <div class="task-item">
+                    <span class="task-text">Reply to Richard</span>
+                    <button class="nav-button">
+                        <i data-feather="chevron-right"></i>
+                    </button>
+                </div>
+                <!-- <div class="task-item">
+                    <span class="task-text">Finalize pitch deck</span>
+                    <button class="nav-button">
+                        <i data-feather="chevron-right"></i>
+                    </button>
+                </div> -->
+            </div>
+
+            <div class="nav-buttons justify-around">
+                <button class="nav-button">
+                    <i data-feather="chevron-left"></i>
+                </button>
+                <button class="nav-button active">
+                    <i data-feather="plus"></i>
+                </button>
+                <button class="nav-button">
+                    <i data-feather="chevron-right"></i>
+                </button>
+            </div>
+        </div>  
+    </div>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
